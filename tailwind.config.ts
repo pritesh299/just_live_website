@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        Tenor_Sans: ["Tenor Sans", 'sans-serif'],
+        Tenor_Sans: ["Tenor Sans",'sans-serif'],
        },
     },
   },

@@ -1,9 +1,9 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import React ,{ useState } from "react"
-import Menu_01 from "../components/menu_01";
+import Category_Card from "../components/category_card";
 import Footer from "../components/footer";
+import Image from "next/image";
 
 export default function Menu(){
 const [category,setCategory]=useState('women')
@@ -29,7 +29,8 @@ const menu = {
     return <>
     <div className="w-[100vw] h-[100vh] absolute top-0 bg-white scroll-none overflow-hidden font-Tenor_Sans  ">
     <div className="h-[15%] ">
-    <div className="text-4xl font-base px-6  py-4 font-thin ">
+    <div className="text-3xl px-6  py-4 font-light ">
+
         <Link href='/'> X</Link>
     </div>
     <div className="flex  text-xl p-2">
@@ -39,13 +40,35 @@ const menu = {
     </div>
     </div>
     <div className="flex flex-col justify-between h-[85%]">
-     <div className=" ">
-        <Menu_01 title='Topwear' subCatergoryList={menu[category]['topWear']}/>
-        <Menu_01 title='Bottomwear' subCatergoryList={menu[category]['bottomWear']}/>
-        <Menu_01 title='Innerwear' subCatergoryList={menu[category]['innerWear']}/>
+     <div className=" overflow-y-scroll overflow-x-hidden no-scrollbar">
+        <Category_Card title='Topwear' subCategoryList={menu[category]['topWear']}/>
+        <Category_Card title='Bottomwear' subCategoryList={menu[category]['bottomWear']}/>
+        <Category_Card title='Innerwear' subCategoryList={menu[category]['innerWear']}/>
      </div >
-     <div className="">
-     <Footer />
+     <div className="flex flex-col justify-center items-center border-t">
+       <div className="flex justify-around p-4 w-full ">
+        <Image
+                src="/images/instagram.png"
+                alt="menu logo"
+                width={30}
+                height={30}
+            />
+        <Image
+                src="/images/twitter.png"
+                alt="menu logo"
+                width={30}
+                height={30}
+            />
+        <Image
+                src="/images/youtube.png"
+                alt="menu logo"
+                width={40}
+                height={30}
+            />
+       </div>  
+       <div className="text-sm  bg-gray-50 w-full text-center p-4 border-t">
+            <p>Copyright @ justLive All Rights Reserved.</p>
+        </div>
      </div>
     
      </div>
