@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image"
 export default function Footer() {
     return<>
-    <footer className=" flex flex-col justify-center items-center font-Tenor_Sans border-t ">
-        <div className="flex justify-around p-4 w-full">
+    <footer className=" flex flex-col justify-center items-center font-Tenor_Sans">
+        <div className="flex justify-around p-4 w-full m-4">
         <Image
                 src="/images/instagram.png"
                 alt="menu logo"

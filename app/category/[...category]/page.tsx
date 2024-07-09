@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import Add_category_popup from "../../components/add_category";
+import Pages_number from "@/app/components/page_no_display";
 
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
@@ -55,6 +56,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
         });
 
         console.log(redirectPath);
+    
         router.push(`/category${redirectPath}`);
     }
 
@@ -86,6 +88,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                     <Product_card key={index} productData={productData} />
                 ))}
             </div>
+           <Pages_number />
             <Footer />
         </>
     );

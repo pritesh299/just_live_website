@@ -77,7 +77,7 @@ const AddCategoryPopup = ({ currentRoute,setShowAddCategoryPopup }: PopupType) =
                             </select>
                         </div>
 
-                        {mainCategory && (
+                        { (
                             <div>
                                 <label className="block mb-2 text-sm font-bold text-gray-700">Sub Category</label>
                                 <select
@@ -86,14 +86,14 @@ const AddCategoryPopup = ({ currentRoute,setShowAddCategoryPopup }: PopupType) =
                                     className="block w-full p-2 border border-gray-300 rounded"
                                 >
                                     <option value="" disabled>Select sub category</option>
-                                    {Object.keys(categoryData[mainCategory]).map((sub) => (
+                                    { mainCategory && Object.keys(categoryData[mainCategory]).map((sub) => (
                                         <option key={sub} value={sub}>{sub}</option>
                                     ))}
                                 </select>
                             </div>
                         )}
 
-                        {subCategory && (
+                        { (
                             <div>
                                 <label className="block mb-2 text-sm font-bold text-gray-700">Further Sub Category</label>
                                 <select
@@ -102,7 +102,7 @@ const AddCategoryPopup = ({ currentRoute,setShowAddCategoryPopup }: PopupType) =
                                     className="block w-full p-2 border border-gray-300 rounded"
                                 >
                                     <option value="" disabled>Select further sub category</option>
-                                    {categoryData[mainCategory][subCategory].map((item) => (
+                                    {subCategory && categoryData[mainCategory][subCategory].map((item) => (
                                         <option key={item} value={item}>{item}</option>
                                     ))}
                                 </select>
@@ -115,10 +115,9 @@ const AddCategoryPopup = ({ currentRoute,setShowAddCategoryPopup }: PopupType) =
                 >
                     Close
                 </button>
-                {showSubmit
-                && <button 
-                    onClick={(e)=>{e.preventDefault();Search()}}
-                    className=" border border-gray-200 bg-[#DD8661] text-white p-2 mx-auto cursor-pointer w-24 text-center mb-4 rounded-full"
+                { <button 
+                    onClick={(e)=>{e.preventDefault(); showSubmit && Search()}}
+                    className={`border border-gray-200  ${showSubmit?'bg-[#DD8661]':'bg-gray-200'}  text-white p-2 mx-auto cursor-pointer w-24 text-center mb-4 rounded-full `}
                 >
                   Search
                 </button>}
